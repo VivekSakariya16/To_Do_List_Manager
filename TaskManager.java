@@ -15,6 +15,15 @@ public class TaskManager {
         System.out.println("Task added successfully.");
     }
 
+    public boolean existTask(String description) {
+        for (Task task : tasks) {
+            if (task.getDescription().equals(description)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void markTaskAsCompleted(String description) {
         for (Task task : tasks) {
             if (task.getDescription().equals(description)) {

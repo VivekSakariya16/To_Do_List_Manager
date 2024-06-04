@@ -98,9 +98,13 @@ public class ToDoList {
                 break;
             }
         }
-
-        Task task = new Task.Builder(description).dueDate(dueDate).note(note).build();
-        manager.addTask(task);
+        if(manager.existTask(description)){
+            System.out.println();
+            System.out.println("Task already exist with this description: " + description);
+        }else{
+            Task task = new Task.Builder(description).dueDate(dueDate).note(note).build();
+            manager.addTask(task);
+        }
     }
 
     private static void markTaskAsCompleted() {
